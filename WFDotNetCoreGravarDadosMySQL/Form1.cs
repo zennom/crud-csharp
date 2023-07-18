@@ -38,21 +38,33 @@ namespace WFDotNetCoreGravarDadosMySQL
         {
             try
             {
-
                 Conexao = new MySqlConnection(data_source);
 
-                string sql = "INSERT INTO contato (nome,email,telefone)" +
-                   "VALUES "+
-                    "(' "+txtNome.Text+"','"+txtEmail.Text+"' , '"+txtTelefone.Text+" ')";
-
-                MySqlCommand comando = new MySqlCommand(sql, Conexao);
                 Conexao.Open();
-                comando.ExecuteReader();
-                MessageBox.Show("Cadastro inserido com sucesso!");
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = Conexao;
+
+
+                cmd.CommandText = "INSERT INTO contato (nome,email,telefone) VALUES (@nome,@email,@telefone) ";
+
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+
+                cmd.Prepare();
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Contato inserido com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+
+            catch (MySqlException ex) {
+               
+                MessageBox.Show("Erro Ocorreu: " + ex.Message,"Erro ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -87,10 +99,8 @@ namespace WFDotNetCoreGravarDadosMySQL
                         reader.GetString(3),
                     };
 
-                    //vamos montar um elemento windowsform que será a nossa linha
                     var linhaListView = new ListViewItem(row);
-                    /*em seguida pegamos o nosso listview e acrescentamos essa linha
-                    que acabamos de criar */
+
                     lst_contatos.Items.Add(linhaListView);
                 }
             }

@@ -1,24 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Viviane\\Downloads\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj": {}
+    "C:\\Users\\viviane.lfrancelino\\source\\repos\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Viviane\\Downloads\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj": {
+    "C:\\Users\\viviane.lfrancelino\\source\\repos\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Viviane\\Downloads\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj",
+        "projectUniqueName": "C:\\Users\\viviane.lfrancelino\\source\\repos\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj",
         "projectName": "WFDotNetCoreGravarDadosMySQL",
-        "projectPath": "C:\\Users\\Viviane\\Downloads\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj",
-        "packagesPath": "C:\\Users\\Viviane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Viviane\\Downloads\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\obj\\",
+        "projectPath": "C:\\Users\\viviane.lfrancelino\\source\\repos\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\WFDotNetCoreGravarDadosMySQL.csproj",
+        "packagesPath": "C:\\Users\\viviane.lfrancelino\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\viviane.lfrancelino\\source\\repos\\crud-csharp\\WFDotNetCoreGravarDadosMySQL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Viviane\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\viviane.lfrancelino\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -51,29 +57,10 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.17, 5.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -82,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
