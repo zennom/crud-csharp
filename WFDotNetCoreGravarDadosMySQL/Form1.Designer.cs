@@ -45,16 +45,17 @@ namespace WFDotNetCoreGravarDadosMySQL
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 49);
+            this.label1.Location = new System.Drawing.Point(42, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 102);
+            this.label2.Location = new System.Drawing.Point(41, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 1;
@@ -63,7 +64,7 @@ namespace WFDotNetCoreGravarDadosMySQL
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 146);
+            this.label3.Location = new System.Drawing.Point(41, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 2;
@@ -71,28 +72,28 @@ namespace WFDotNetCoreGravarDadosMySQL
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(40, 76);
+            this.txtNome.Location = new System.Drawing.Point(41, 60);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(170, 23);
             this.txtNome.TabIndex = 3;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(40, 120);
+            this.txtTelefone.Location = new System.Drawing.Point(41, 104);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(170, 23);
             this.txtTelefone.TabIndex = 4;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(40, 164);
+            this.txtEmail.Location = new System.Drawing.Point(41, 148);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(170, 23);
             this.txtEmail.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(136, 217);
+            this.button1.Location = new System.Drawing.Point(136, 193);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -105,7 +106,7 @@ namespace WFDotNetCoreGravarDadosMySQL
             this.lst_contatos.HideSelection = false;
             this.lst_contatos.Location = new System.Drawing.Point(233, 84);
             this.lst_contatos.Name = "lst_contatos";
-            this.lst_contatos.Size = new System.Drawing.Size(430, 103);
+            this.lst_contatos.Size = new System.Drawing.Size(430, 132);
             this.lst_contatos.TabIndex = 7;
             this.lst_contatos.UseCompatibleStateImageBehavior = false;
             // 

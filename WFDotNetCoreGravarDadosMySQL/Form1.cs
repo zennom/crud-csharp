@@ -57,7 +57,7 @@ namespace WFDotNetCoreGravarDadosMySQL
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Contato inserido com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Contato inserido com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }
@@ -76,16 +76,20 @@ namespace WFDotNetCoreGravarDadosMySQL
         {
            try
             {
-                string q = " '%" + txt_buscar.Text + "%' ";
-
                 Conexao = new MySqlConnection(data_source);
-                
-                string sql = "SELECT * " + "FROM contato " +
-                    "WHERE nome LIKE "+q+"OR email LIKE "+q;
-
-                MySqlCommand comando = new MySqlCommand(sql, Conexao);
                 Conexao.Open();
-                MySqlDataReader reader = comando.ExecuteReader();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = Conexao;
+
+                cmd.CommandText = "SELECT * FROM contato WHERE nome LIKE @q OR email LIKE  @q";
+
+                cmd.Parameters.AddWithValue("@q", "%"+txt_buscar.Text+"%");
+
+                cmd.Prepare();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
 
                 lst_contatos.Items.Clear();
 
@@ -99,19 +103,23 @@ namespace WFDotNetCoreGravarDadosMySQL
                         reader.GetString(3),
                     };
 
-                    var linhaListView = new ListViewItem(row);
-
-                    lst_contatos.Items.Add(linhaListView);
+                    lst_contatos.Items.Add(new ListViewItem(row));
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+
+                MessageBox.Show("Erro Ocorreu: " + ex.Message, "Erro ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally 
+            finally
             {
                 Conexao.Close();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
