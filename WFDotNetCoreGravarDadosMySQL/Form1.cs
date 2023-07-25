@@ -28,6 +28,10 @@ namespace WFDotNetCoreGravarDadosMySQL
             lst_contatos.Columns.Add("Nome", 150, HorizontalAlignment.Left);
             lst_contatos.Columns.Add("Email", 150, HorizontalAlignment.Left);
             lst_contatos.Columns.Add("Telefone", 150, HorizontalAlignment.Left);
+
+            //chamando CarregarContatos diretamente no construtor
+            CarregarContatos();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,26 +43,19 @@ namespace WFDotNetCoreGravarDadosMySQL
             try
             {
                 Conexao = new MySqlConnection(data_source);
-
                 Conexao.Open();
-
                 MySqlCommand cmd = new MySqlCommand();
-
                 cmd.Connection = Conexao;
-
-
                 cmd.CommandText = "INSERT INTO contato (nome,email,telefone) VALUES (@nome,@email,@telefone) ";
-
                 cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                 cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-
                 cmd.Prepare();
-
                 cmd.ExecuteNonQuery();
-
                 MessageBox.Show("Contato inserido com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                //para atualizar os contatos basta chamar a função CarregarContatos no método inserir
+                CarregarContatos();
 
             }
 
@@ -95,6 +92,43 @@ namespace WFDotNetCoreGravarDadosMySQL
 
                 while(reader.Read())
                 {   
+                    string[] row =
+                    {
+                        reader.GetString(0),
+                        reader.GetString(1),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                    };
+
+                    lst_contatos.Items.Add(new ListViewItem(row));
+                }
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("Erro Ocorreu: " + ex.Message, "Erro ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+        }
+
+        private void CarregarContatos()
+        {
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Conexao;
+                cmd.CommandText = "SELECT * FROM contato ORDER BY id desc";
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                lst_contatos.Items.Clear();
+
+                while (reader.Read())
+                {
                     string[] row =
                     {
                         reader.GetString(0),
