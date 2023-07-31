@@ -54,9 +54,12 @@ namespace WFDotNetCoreGravarDadosMySQL
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Contato inserido com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //para atualizar os contatos basta chamar a função CarregarContatos no método inserir
-                CarregarContatos();
+                txtNome.Text = string.Empty;
+                txtEmail.Text = "";
+                txtTelefone.Text = "";
 
+
+                CarregarContatos();
             }
 
             catch (MySqlException ex) {

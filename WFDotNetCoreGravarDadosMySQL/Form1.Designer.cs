@@ -105,8 +105,9 @@ namespace WFDotNetCoreGravarDadosMySQL
             // 
             this.lst_contatos.HideSelection = false;
             this.lst_contatos.Location = new System.Drawing.Point(233, 84);
+            this.lst_contatos.MultiSelect = false;
             this.lst_contatos.Name = "lst_contatos";
-            this.lst_contatos.Size = new System.Drawing.Size(430, 132);
+            this.lst_contatos.Size = new System.Drawing.Size(430, 162);
             this.lst_contatos.TabIndex = 7;
             this.lst_contatos.UseCompatibleStateImageBehavior = false;
             // 

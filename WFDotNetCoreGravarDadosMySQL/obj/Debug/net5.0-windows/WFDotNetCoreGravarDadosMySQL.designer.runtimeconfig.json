@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\viviane.lfrancelino.SENACEDU\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\viviane.lfrancelino.SENACEDU\\.nuget\\packages",
+      "C:\\Users\\viviane.lfrancelino\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\viviane.lfrancelino\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
       "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
     ],
