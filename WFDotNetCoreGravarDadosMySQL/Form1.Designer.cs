@@ -50,7 +50,6 @@ namespace WFDotNetCoreGravarDadosMySQL
             this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -110,6 +109,8 @@ namespace WFDotNetCoreGravarDadosMySQL
             this.lst_contatos.Size = new System.Drawing.Size(430, 162);
             this.lst_contatos.TabIndex = 7;
             this.lst_contatos.UseCompatibleStateImageBehavior = false;
+            this.lst_contatos.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lst_contatos_ItemSelectionChanged);
+
             // 
             // label4
             // 
