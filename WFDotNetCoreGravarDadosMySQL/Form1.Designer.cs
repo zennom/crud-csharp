@@ -92,9 +92,9 @@ namespace WFDotNetCoreGravarDadosMySQL
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(136, 193);
+            this.button1.Location = new System.Drawing.Point(138, 193);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(73, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Salvar";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,7 +110,6 @@ namespace WFDotNetCoreGravarDadosMySQL
             this.lst_contatos.TabIndex = 7;
             this.lst_contatos.UseCompatibleStateImageBehavior = false;
             this.lst_contatos.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lst_contatos_ItemSelectionChanged);
-
             // 
             // label4
             // 
@@ -156,7 +155,6 @@ namespace WFDotNetCoreGravarDadosMySQL
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

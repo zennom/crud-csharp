@@ -15,6 +15,10 @@ namespace WFDotNetCoreGravarDadosMySQL
     {
         private MySqlConnection Conexao;
         private string data_source = "datasource=localhost;username=root;password=;database=db_agenda";
+
+
+        private int ?id_contato_selecionado = null;
+     
         public Form1()
         {
             InitializeComponent();
@@ -29,13 +33,8 @@ namespace WFDotNetCoreGravarDadosMySQL
             lst_contatos.Columns.Add("Email", 150, HorizontalAlignment.Left);
             lst_contatos.Columns.Add("Telefone", 150, HorizontalAlignment.Left);
 
-            //chamando CarregarContatos diretamente no construtor
             CarregarContatos();
 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,18 +45,34 @@ namespace WFDotNetCoreGravarDadosMySQL
                 Conexao.Open();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = Conexao;
-                cmd.CommandText = "INSERT INTO contato (nome,email,telefone) VALUES (@nome,@email,@telefone) ";
-                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Contato inserido com sucesso", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
+         
+
+                if (id_contato_selecionado == null)
+                {
+                    cmd.CommandText = "INSERT INTO contato (nome,email,telefone) VALUES (@nome,@email,@telefone) ";
+                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Contato inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //atualização de contato
+                    cmd.CommandText = "UPDATE contato SET nome=@nome, email=@email, telefone=@telefone WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                    cmd.Parameters.AddWithValue("@id",id_contato_selecionado);
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Contato atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 txtNome.Text = string.Empty;
                 txtEmail.Text = "";
                 txtTelefone.Text = "";
-
 
                 CarregarContatos();
             }
@@ -160,9 +175,14 @@ namespace WFDotNetCoreGravarDadosMySQL
 
             foreach(ListViewItem item in itens_selecionados)
             {
+                id_contato_selecionado = Convert.ToInt32(item.SubItems[0].Text);
+
                 txtNome.Text = item.SubItems[1].Text;
                 txtEmail.Text = item.SubItems[2].Text;
                 txtTelefone.Text = item.SubItems[3].Text;
+
+              
+
             }
         }
     }
