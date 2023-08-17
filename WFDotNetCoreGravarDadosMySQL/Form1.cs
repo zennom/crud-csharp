@@ -185,5 +185,11 @@ namespace WFDotNetCoreGravarDadosMySQL
 
             }
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //vamos por uma mensagem de teste aqui
+            MessageBox.Show("Vou excluir");
+        }
     }
 }
