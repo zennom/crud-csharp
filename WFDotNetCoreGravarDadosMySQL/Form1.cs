@@ -188,8 +188,8 @@ namespace WFDotNetCoreGravarDadosMySQL
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //vamos por uma mensagem de teste aqui
-            MessageBox.Show("Vou excluir");
+            //confira se ele vai pegar o id do usuário
+            MessageBox.Show("Vou excluir "+id_contato_selecionado);
         }
     }
 }
