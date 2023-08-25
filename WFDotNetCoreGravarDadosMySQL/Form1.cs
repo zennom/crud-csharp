@@ -188,8 +188,33 @@ namespace WFDotNetCoreGravarDadosMySQL
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //confira se ele vai pegar o id do usuário
-            MessageBox.Show("Vou excluir "+id_contato_selecionado);
+            try
+            {
+                DialogResult conf = MessageBox.Show("Tem certeza que deseja excluir o registro?",
+                    "Excluir o registro", MessageBoxButtons.YesNo);
+
+                if (conf == DialogResult.Yes)
+                {
+                    MessageBox.Show("Contato excluído com sucesso!", "Sucesso!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    CarregarContatos();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro "+ex.Number+" ocorreu: "+ex.Message,
+                    "Erro ",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                    " Erro ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
         }
     }
 }
